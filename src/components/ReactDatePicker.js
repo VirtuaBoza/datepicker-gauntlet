@@ -9,9 +9,11 @@ class ReactDatePicker extends React.Component {
     this.state = {
       date: moment()
     }
+
+    this.onChange = this.onChange.bind(this);
   }
 
-  onChange = date => {
+  onChange(date) {
     this.setState({ date });
   }
 

@@ -9,9 +9,11 @@ class BetterDateInputPolyfill extends React.Component {
     this.state = {
       date: moment().format('YYYY-MM-DD')
     }
+
+    this.onChange = this.onChange.bind(this);
   }
 
-  onChange = event => {
+  onChange(event) {
     const date = event.target.value;
     this.setState({date});
   }

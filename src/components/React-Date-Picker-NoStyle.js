@@ -7,9 +7,11 @@ class React_Date_Picker_NoStyle extends React.Component {
     this.state = {
       date: new Date()
     }
+
+    this.onChange = this.onChange.bind(this);
   }
 
-  onChange = date => {
+  onChange(date) {
     this.setState({ date });
   }
 

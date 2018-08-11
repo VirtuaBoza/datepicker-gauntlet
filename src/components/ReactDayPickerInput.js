@@ -10,10 +10,12 @@ class ReactDayPickerInput extends React.Component {
     this.state = {
       date: new Date(),
     };
+
+    this.onChange = this.onChange.bind(this);
   }
 
-  onChange = (day) => {
-    this.setState({ date: day });
+  onChange(date) {
+    this.setState({ date });
   }
 
   render() {

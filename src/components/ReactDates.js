@@ -28,6 +28,7 @@ class ReactDates extends React.Component {
           id="your_unique_id" // PropTypes.string.isRequired,
           isOutsideRange={() => false}
         />
+        <p>state = {this.state.date && this.state.date.toString()}</p>
       </div>
     );
   }

@@ -8,9 +8,11 @@ class DateInputPolyfill extends React.Component {
     this.state = {
       date: moment().format('YYYY-MM-DD')
     }
+
+    this.onChange = this.onChange.bind(this);
   }
 
-  shouldComponentUpdate = () => {
+  shouldComponentUpdate() {
     if (this.dateInput) {
       this.dateInput.removeEventListener('change', this.onChange);
     }
@@ -18,13 +20,13 @@ class DateInputPolyfill extends React.Component {
     return true;
   }
 
-  componentDidUpdate = () => {
+  componentDidUpdate() {
     if (this.dateInput) {
       this.dateInput.addEventListener('change', this.onChange);
     }
   }
 
-  onChange = event => {
+  onChange(event) {
     const date = event.target.value;
     this.setState({ date });
     console.log('onChange fired.');
