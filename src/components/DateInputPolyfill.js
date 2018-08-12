@@ -1,12 +1,15 @@
 import React from 'react';
 import moment from 'moment';
 import 'date-input-polyfill';
+import { browserSupportsDateInput } from '../utilities';
 
 class DateInputPolyfill extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: moment().format('MM/DD/YYYY')
+      date: browserSupportsDateInput() 
+      ? moment().format('YYYY-MM-DD') 
+      : moment().format('MM/DD/YYYY')
     }
     this.dateInput = React.createRef();
     this.onChange = this.onChange.bind(this);

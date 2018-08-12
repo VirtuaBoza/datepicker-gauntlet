@@ -28,6 +28,11 @@ const BetterDateInputPolyfill = Loadable({
   loading: Loading,
 });
 
+const Winner = Loadable({
+  loader: () => import('./components/Winner'),
+  loading: Loading,
+});
+
 export default class App extends Component {
   displayName = App.name
 
@@ -45,6 +50,7 @@ export default class App extends Component {
         <Route exact path="/better-dateinput-polyfill" component={BetterDateInputPolyfill} />
         <Route exact path="/react-day-picker" component={ReactDayPickerInput} />
         <Route exact path="/jquery-ui-datepicker" component={JQueryUIDatePicker}/>
+        <Route exact path="/winner" component={Winner}/>
       </Layout>
     );
   }

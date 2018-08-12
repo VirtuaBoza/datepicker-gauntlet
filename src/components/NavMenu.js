@@ -73,6 +73,11 @@ export class NavMenu extends Component {
                 jQuery UI Datepicker
               </NavItem>
             </LinkContainer>
+            <LinkContainer to={'/winner'}>
+              <NavItem>
+                Winner
+              </NavItem>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
