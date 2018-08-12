@@ -32,7 +32,7 @@ class NoDepDateInputPolyfill extends React.Component {
           type="date"
           value={this.state.date}
           onChange={this.onChange}
-          onKeyDown={e => e.preventDefault()}
+          date-format="mm/dd/yyyy"
           ref={this.dateInput} />
         <p>state = {this.state.date}</p>
       </div>

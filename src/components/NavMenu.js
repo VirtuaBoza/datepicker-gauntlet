@@ -38,6 +38,11 @@ export class NavMenu extends Component {
                 date-input-polyfill
               </NavItem>
             </LinkContainer>
+            <LinkContainer to={'/neo-date-input-polyfill'}>
+              <NavItem>
+                neo-date-input-polyfill
+              </NavItem>
+            </LinkContainer>
             <LinkContainer to={'/better-dateinput-polyfill'}>
               <NavItem>
                 better-dateinput-polyfill

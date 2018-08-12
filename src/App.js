@@ -23,6 +23,11 @@ const NoDepDateInputPolyfill = Loadable({
   loading: Loading,
 });
 
+const NeoDateInputPolyfill = Loadable({
+  loader: () => import('./components/NeoDateInputPolyfill'),
+  loading: Loading,
+});
+
 const BetterDateInputPolyfill = Loadable({
   loader: () => import('./components/BetterDateInputPolyfill'),
   loading: Loading,
@@ -43,6 +48,7 @@ export default class App extends Component {
         <Route exact path="/date-input" component={PlainDateInput} />
         <Route exact path="/date-input-polyfill" component={DateInputPolyfill} />
         <Route exact path="/nodep-date-input-polyfill" component={NoDepDateInputPolyfill} />
+        <Route exact path="/neo-date-input-polyfill" component={NeoDateInputPolyfill} />
         <Route exact path="/react-datepicker" component={ReactDatePicker} />
         <Route exact path="/react-date-picker" component={React_Date_Picker} />
         <Route exact path="/react-date-picker-nostyle" component={React_Date_Picker_NoStyle} />
