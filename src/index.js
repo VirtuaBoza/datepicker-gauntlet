@@ -1,10 +1,18 @@
+import 'babel-polyfill';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
+import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './components/App';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
+const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
+
 ReactDOM.render(
-  <App/>, 
+  <BrowserRouter basename={baseUrl}>
+    <App />
+  </BrowserRouter>,
   document.getElementById('root'));
 registerServiceWorker();

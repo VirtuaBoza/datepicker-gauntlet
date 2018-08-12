@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import React from 'react';
 import 'react-dates/initialize';
 import { SingleDatePicker } from 'react-dates';
@@ -19,7 +18,7 @@ class ReactDates extends React.Component {
     return (
       <div>
         <h4>react-dates (by airbnb)</h4>
-        <p>This is pretty specific to airbnb's needs.</p>
+        <p>This one's pretty specific to airbnb's needs.</p>
         <SingleDatePicker
           date={this.state.date} // momentPropTypes.momentObj or null
           onDateChange={date => this.setState({ date })} // PropTypes.func.isRequired

@@ -19,6 +19,7 @@ class React_Date_Picker extends React.Component {
     return (
       <div>
         <h4>react-date-picker</h4>
+        <p>This one seems to only want to open upwards.</p>
         <DatePicker
           value={this.state.date}
           onChange={this.onChange} />

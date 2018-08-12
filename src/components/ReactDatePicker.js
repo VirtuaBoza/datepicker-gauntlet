@@ -21,6 +21,8 @@ class ReactDatePicker extends React.Component {
     return (
       <div>
         <h4>react-datepicker</h4>
+        <p>For some reason, once I added bootstrap styling to the page, the datepicker on this shrunk.</p>
+        <p>Despite this, I believe this to be the best option of the ones I've tried. react-day-picker may be stylistically superior, but this one allows you to select year and such.</p>
         <DatePicker
           selected={this.state.date}
           onChange={this.onChange}

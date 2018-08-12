@@ -22,6 +22,7 @@ class ReactDayPickerInput extends React.Component {
     return (
       <div>
         <h4>react-day-picker</h4>
+        <p>This is a contender for best, but the props are a bit complicated and it doesn't have year selectors to change year quickly.</p>
         <DayPickerInput
           onDayChange={this.onChange}
           formatDate={formatDate}
