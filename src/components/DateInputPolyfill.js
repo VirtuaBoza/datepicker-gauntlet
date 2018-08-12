@@ -37,6 +37,7 @@ class DateInputPolyfill extends React.Component {
         <input
           type="date"
           defaultValue={this.state.date}
+          onKeyDown={e => e.preventDefault()}
           ref={this.dateInput} />
         <p>state = {this.state.date}</p>
       </div>

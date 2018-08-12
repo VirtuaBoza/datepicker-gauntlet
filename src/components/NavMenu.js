@@ -68,6 +68,11 @@ export class NavMenu extends Component {
                 react-day-picker
               </NavItem>
             </LinkContainer>
+            <LinkContainer to={'/jquery-ui-datepicker'}>
+              <NavItem>
+                jQuery UI Datepicker
+              </NavItem>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

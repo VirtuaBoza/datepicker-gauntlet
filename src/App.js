@@ -4,6 +4,12 @@ import { Route } from 'react-router';
 import { Layout } from './components/Layout';
 import Home from './components/Home';
 import DateInput from './components/DateInput';
+import ReactDatePicker from './components/ReactDatePicker';
+import React_Date_Picker from './components/React-Date-Picker';
+import React_Date_Picker_NoStyle from './components/React-Date-Picker-NoStyle';
+import ReactDates from './components/ReactDates';
+import ReactDayPickerInput from './components/ReactDayPickerInput';
+import JQueryUIDatePicker from './components/JQueryUIDatePicker';
 
 const Loading = () => <div>Loading...</div>;
 
@@ -17,33 +23,8 @@ const NoDepDateInputPolyfill = Loadable({
   loading: Loading,
 });
 
-const ReactDatePicker = Loadable({
-  loader: () => import('./components/ReactDatePicker'),
-  loading: Loading,
-});
-
-const React_Date_Picker = Loadable({
-  loader: () => import('./components/React-Date-Picker'),
-  loading: Loading,
-});
-
-const React_Date_Picker_NoStyle = Loadable({
-  loader: () => import('./components/React-Date-Picker-NoStyle'),
-  loading: Loading,
-});
-
-const ReactDates = Loadable({
-  loader: () => import('./components/ReactDates'),
-  loading: Loading,
-});
-
 const BetterDateInputPolyfill = Loadable({
   loader: () => import('./components/BetterDateInputPolyfill'),
-  loading: Loading,
-});
-
-const ReactDayPickerInput = Loadable({
-  loader: () => import('./components/ReactDayPickerInput'),
   loading: Loading,
 });
 
@@ -63,6 +44,7 @@ export default class App extends Component {
         <Route exact path="/react-dates" component={ReactDates} />
         <Route exact path="/better-dateinput-polyfill" component={BetterDateInputPolyfill} />
         <Route exact path="/react-day-picker" component={ReactDayPickerInput} />
+        <Route exact path="/jquery-ui-datepicker" component={JQueryUIDatePicker}/>
       </Layout>
     );
   }
