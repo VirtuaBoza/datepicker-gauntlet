@@ -6,7 +6,7 @@ class DateInputPolyfill extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: moment().format('YYYY-MM-DD')
+      date: moment().format('MM/DD/YYYY')
     }
     this.dateInput = React.createRef();
     this.onChange = this.onChange.bind(this);
@@ -37,7 +37,7 @@ class DateInputPolyfill extends React.Component {
         <input
           type="date"
           defaultValue={this.state.date}
-          onKeyDown={e => e.preventDefault()}
+          date-format="mm/dd/yyyy"
           ref={this.dateInput} />
         <p>state = {this.state.date}</p>
       </div>
