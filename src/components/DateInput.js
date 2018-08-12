@@ -1,31 +1,74 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
+import 'date-input-polyfill';
 
 class DateInput extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      date: moment().format('YYYY-MM-DD')
-    }
-
+    this.dateInput = React.createRef();
     this.onChange = this.onChange.bind(this);
   }
 
+  componentDidMount() {
+    if (this.dateInput.current && !this.browserSupportsDateInput()) {
+      this.dateInput.current.addEventListener('change', this.onChange);
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.dateInput.current && !this.browserSupportsDateInput()) {
+      this.dateInput.current.removeEventListener('change', this.onChange);
+    }
+  }
+
   onChange(event) {
-    const date = event.target.value;
-    this.setState({date});
+    const date = this.browserSupportsDateInput()
+      ? event.target.value
+      : event.target.value
+        ? moment(event.target.value, 'MM/DD/YYYY').format('YYYY-MM-DD')
+        : null;
+    event.target.value = date;
+    this.props.onChange(event);
+  }
+
+  browserSupportsDateInput() {
+    var test = document.createElement('input');
+    try {
+      test.type = 'date';
+    } catch (error) {
+      return false;
+    }
+
+    return test.type === 'date';
   }
 
   render() {
+    const value = this.props.value ? this.browserSupportsDateInput()
+      ? this.props.value
+      : moment(this.props.value).format('MM/DD/YYYY')
+      : ''
+
     return (
-      <div>
-        <h4>Regular <code>input</code> with <code>type="date"</code></h4>
-        <p>IE11 doesn't support this. Note the lack of a date picker.</p>
-        <input type="date" value={this.state.date} onChange={this.onChange}/>
-        <p>state = {this.state.date}</p>
-      </div>
+      <input
+        type="date"
+        value={value}
+        date-format="mm/dd/yyyy"
+        onChange={this.onChange}
+        ref={this.dateInput} />
     );
   }
+}
+
+DateInput.propTypes = {
+  value: function (props, propName, componentName) {
+    if (props[propName] && !/^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/.test(props[propName])) {
+      return new Error(
+        `Invalid prop ${propName} supplied to ${componentName}. Expects date string in 'YYYY-MM-DD' format.`
+      );
+    }
+  },
+  onChange: PropTypes.func.isRequired
 }
 
 export default DateInput;

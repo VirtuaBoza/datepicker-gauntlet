@@ -1,6 +1,7 @@
 import React from 'react';
-import MyDateInput from './MyDateInput';
+import DateInput from './DateInput';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 class Winner extends React.Component {
   constructor(props) {
@@ -21,7 +22,9 @@ class Winner extends React.Component {
   render() {
     return (
       <div>
-        <MyDateInput onChange={this.onChange} value={this.state.date}/>
+        <h4>This page uses <Link to="/date-input-polyfill">date-input-polyfill</Link> indirectly via a custom component I made which abstracts the intricacies of making the polyfill work.</h4>
+        <p>The only issue is that the alignment/visibility of the picker seems to be... off (at least in this example which is so close to a sidebar).</p>
+        <DateInput onChange={this.onChange} value={this.state.date}/>
         <p>state = {this.state.date}</p>
       </div>
     );

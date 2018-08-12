@@ -3,7 +3,7 @@ import Loadable from 'react-loadable';
 import { Route } from 'react-router';
 import { Layout } from './components/Layout';
 import Home from './components/Home';
-import DateInput from './components/DateInput';
+import PlainDateInput from './components/PlainDateInput';
 import ReactDatePicker from './components/ReactDatePicker';
 import React_Date_Picker from './components/React-Date-Picker';
 import React_Date_Picker_NoStyle from './components/React-Date-Picker-NoStyle';
@@ -40,7 +40,7 @@ export default class App extends Component {
     return (
       <Layout>
         <Route exact path="/" component={Home} />
-        <Route exact path="/date-input" component={DateInput} />
+        <Route exact path="/date-input" component={PlainDateInput} />
         <Route exact path="/date-input-polyfill" component={DateInputPolyfill} />
         <Route exact path="/nodep-date-input-polyfill" component={NoDepDateInputPolyfill} />
         <Route exact path="/react-datepicker" component={ReactDatePicker} />
